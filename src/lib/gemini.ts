@@ -3,7 +3,7 @@ import { findCategory } from '@/lib/categories'
 import { formatComponents, formatSize } from '@/lib/rules'
 import type { ConfirmedInfo, GeneratedText } from '@/types/listing'
 
-const MODEL = 'gemini-2.5-flash'
+const MODEL = 'gemini-3.6-flash'
 
 const responseJsonSchema = {
   type: 'object',
