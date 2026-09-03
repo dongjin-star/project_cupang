@@ -1,0 +1,50 @@
+{
+  "storage": {
+    "label": "수납/정리용품",
+    "dropdowns": [
+      { "key": "수납정리공간 위치", "options": ["냉장고", "주방", "욕실", "거실", "화장대", "옷장"], "default": "주방" },
+      { "key": "정리용품 종류", "options": ["트레이", "회전트레이", "바구니", "선반", "수납함"], "default": "수납함" },
+      { "key": "정리용품 용도", "options": ["다용도", "조미료", "화장품", "약통", "식품"], "default": "다용도" },
+      { "key": "칸막이 여부", "options": ["있음", "없음"], "default": "없음" },
+      { "key": "손잡이 유무", "options": ["있음", "없음"], "default": "없음" },
+      { "key": "구성", "options": ["1개", "2개", "3개 이상"], "default": "1개" },
+      { "key": "뚜껑포함여부", "options": ["포함", "미포함"], "default": "미포함" },
+      { "key": "수납/정리용품 재질", "options": ["플라스틱", "스테인리스", "유리", "패브릭", "우드"], "default": "플라스틱" },
+      { "key": "스타일", "options": ["모던 / 심플", "내추럴", "빈티지", "north유럽"], "default": "모던 / 심플" },
+      { "key": "품목 모양", "options": ["원형", "사각형", "타원형", "기타"], "default": "사각형" },
+      { "key": "마감 유형", "options": ["투명", "불투명", "반투명", "무광", "유광"], "default": "불투명" },
+      { "key": "방수 성능", "options": ["방수", "생활방수", "방수 아님"], "default": "방수" },
+      { "key": "세척 용이성", "options": ["손세척", "식기세척기 사용가능", "물세척 불가"], "default": "손세척" },
+      { "key": "수납가능여부", "options": ["가능", "불가능"], "default": "가능" },
+      { "key": "미끄럼방지 가능여부", "options": ["있음", "없음"], "default": "없음", "needsVerify": true }
+    ],
+    "inputs": [
+      { "key": "세로길이", "source": "height" },
+      { "key": "항목 길이가 더 긴 가장자리", "source": "longEdge" },
+      { "key": "항목 너비가 짧은 가장자리", "source": "shortEdge" },
+      { "key": "아이템 높이", "source": "height" }
+    ]
+  },
+  "generic": {
+    "label": "공통",
+    "dropdowns": [
+      { "key": "재질", "options": ["플라스틱", "스테인리스", "유리", "실리콘", "우드", "패브릭"], "default": "플라스틱" },
+      { "key": "구성", "options": ["1개", "2개", "3개 이상"], "default": "1개" },
+      { "key": "스타일", "options": ["모던 / 심플", "내추럴", "빈티지"], "default": "모던 / 심플" },
+      { "key": "품목 모양", "options": ["원형", "사각형", "타원형", "기타"], "default": "사각형" },
+      { "key": "마감 유형", "options": ["투명", "불투명", "무광", "유광"], "default": "불투명" },
+      { "key": "세척 용이성", "options": ["손세척", "식기세척기 사용가능", "물세척 불가"], "default": "손세척" }
+    ],
+    "inputs": [
+      { "key": "세로길이", "source": "height" },
+      { "key": "항목 길이가 더 긴 가장자리", "source": "longEdge" },
+      { "key": "항목 너비가 짧은 가장자리", "source": "shortEdge" },
+      { "key": "아이템 높이", "source": "height" }
+    ]
+  },
+  "blanks": [
+    { "key": "Manufacturer Part Number", "reason": "제조사 부품번호 없음" },
+    { "key": "Parent Manufacturer Part Number", "reason": "없음" },
+    { "key": "Global Trade Item Number", "reason": "바코드(GTIN/EAN) 없음" }
+  ]
+}

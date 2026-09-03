@@ -1,0 +1,46 @@
+{
+  "kitchen": {
+    "label": "주방용품",
+    "fields": [
+      { "key": "품명 및 모델명", "source": "productName" },
+      { "key": "재질", "source": "material" },
+      { "key": "구성품", "source": "components" },
+      { "key": "크기", "source": "size" },
+      { "key": "동일모델의 출시년월", "source": "releaseYearMonth" },
+      { "key": "제조자(수입자)", "source": "manufacturer" },
+      { "key": "제조국", "source": "origin" },
+      { "key": "수입신고 문구 여부", "source": "importDeclaration" },
+      { "key": "품질보증기준", "source": "warranty" },
+      { "key": "A/S 책임자와 전화번호", "source": "userInput" }
+    ]
+  },
+  "living": {
+    "label": "생활용품",
+    "fields": [
+      { "key": "품명 및 모델명", "source": "productName" },
+      { "key": "재질", "source": "material" },
+      { "key": "구성품", "source": "components" },
+      { "key": "크기", "source": "size" },
+      { "key": "동일모델의 출시년월", "source": "releaseYearMonth" },
+      { "key": "제조자(수입자)", "source": "manufacturer" },
+      { "key": "제조국", "source": "origin" },
+      { "key": "취급시 주의사항", "source": "caution" },
+      { "key": "품질보증기준", "source": "warranty" },
+      { "key": "A/S 책임자와 전화번호", "source": "userInput" }
+    ]
+  },
+  "office": {
+    "label": "문구/사무용품",
+    "fields": [
+      { "key": "품명 및 모델명", "source": "productName" },
+      { "key": "재질", "source": "material" },
+      { "key": "구성품", "source": "components" },
+      { "key": "크기", "source": "size" },
+      { "key": "동일모델의 출시년월", "source": "releaseYearMonth" },
+      { "key": "제조자(수입자)", "source": "manufacturer" },
+      { "key": "제조국", "source": "origin" },
+      { "key": "품질보증기준", "source": "warranty" },
+      { "key": "A/S 책임자와 전화번호", "source": "userInput" }
+    ]
+  }
+}

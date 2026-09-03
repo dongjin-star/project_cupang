@@ -1,0 +1,114 @@
+[
+  {
+    "key": "kitchen_storage",
+    "label": "주방수납/정리",
+    "path": "주방용품 > 주방수납/정리 > 냉장고/냉동실정리용품 > 정리수납함/트레이",
+    "feeRate": 10.8,
+    "noticeKey": "kitchen",
+    "filterKey": "storage",
+    "alternatives": [
+      { "path": "생활용품 > 수납/정리 > 정리함/바구니 > 다용도정리함", "feeRate": 10.8 },
+      { "path": "주방용품 > 주방수납/정리 > 싱크대정리용품 > 선반/랙", "feeRate": 10.8 }
+    ]
+  },
+  {
+    "key": "kitchen_tool",
+    "label": "주방조리도구",
+    "path": "주방용품 > 조리도구 > 주방잡화 > 기타 주방잡화",
+    "feeRate": 10.8,
+    "noticeKey": "kitchen",
+    "filterKey": "generic",
+    "alternatives": [
+      { "path": "주방용품 > 조리도구 > 계량도구", "feeRate": 10.8 }
+    ]
+  },
+  {
+    "key": "kitchen_tableware",
+    "label": "식기/그릇",
+    "path": "주방용품 > 그릇/홈세트 > 접시/볼 > 접시",
+    "feeRate": 10.8,
+    "noticeKey": "kitchen",
+    "filterKey": "generic",
+    "alternatives": [
+      { "path": "주방용품 > 컵/잔/텀블러 > 머그컵", "feeRate": 10.8 }
+    ]
+  },
+  {
+    "key": "living_storage",
+    "label": "생활 수납/정리",
+    "path": "생활용품 > 수납/정리 > 정리함/바구니 > 다용도정리함",
+    "feeRate": 10.8,
+    "noticeKey": "living",
+    "filterKey": "storage",
+    "alternatives": [
+      { "path": "가구 > 수납가구 > 선반/랙", "feeRate": 10.8 },
+      { "path": "생활용품 > 수납/정리 > 옷걸이/행거", "feeRate": 10.8 }
+    ]
+  },
+  {
+    "key": "bath_supplies",
+    "label": "욕실용품",
+    "path": "생활용품 > 욕실용품 > 욕실수납 > 욕실선반/코너선반",
+    "feeRate": 10.8,
+    "noticeKey": "living",
+    "filterKey": "storage",
+    "alternatives": [
+      { "path": "생활용품 > 욕실용품 > 욕실잡화", "feeRate": 10.8 }
+    ]
+  },
+  {
+    "key": "beauty_tool",
+    "label": "화장품 정리/뷰티소품",
+    "path": "뷰티 > 뷰티소품 > 화장품정리함",
+    "feeRate": 9.6,
+    "noticeKey": "living",
+    "filterKey": "storage",
+    "alternatives": [
+      { "path": "생활용품 > 수납/정리 > 정리함/바구니 > 화장대정리함", "feeRate": 10.8 }
+    ]
+  },
+  {
+    "key": "office_supplies",
+    "label": "문구/사무용품",
+    "path": "문구/오피스 > 사무용품 > 데스크정리용품",
+    "feeRate": 10.8,
+    "noticeKey": "office",
+    "filterKey": "generic",
+    "alternatives": [
+      { "path": "문구/오피스 > 학용품 > 필통/필기수납", "feeRate": 10.8 }
+    ]
+  },
+  {
+    "key": "pet_supplies",
+    "label": "반려동물용품",
+    "path": "반려동물용품 > 강아지용품 > 급식기/급수기",
+    "feeRate": 10.8,
+    "noticeKey": "living",
+    "filterKey": "generic",
+    "alternatives": [
+      { "path": "반려동물용품 > 고양이용품 > 급식기/급수기", "feeRate": 10.8 }
+    ]
+  },
+  {
+    "key": "car_supplies",
+    "label": "자동차용품",
+    "path": "자동차용품 > 차량관리용품 > 차량수납용품",
+    "feeRate": 10.0,
+    "noticeKey": "living",
+    "filterKey": "generic",
+    "alternatives": [
+      { "path": "자동차용품 > 인테리어용품 > 거치대", "feeRate": 10.0 }
+    ]
+  },
+  {
+    "key": "home_deco",
+    "label": "홈데코/인테리어",
+    "path": "홈인테리어 > 인테리어소품 > 장식소품",
+    "feeRate": 10.8,
+    "noticeKey": "living",
+    "filterKey": "generic",
+    "alternatives": [
+      { "path": "홈인테리어 > 수납/정리 > 소품수납함", "feeRate": 10.8 }
+    ]
+  }
+]

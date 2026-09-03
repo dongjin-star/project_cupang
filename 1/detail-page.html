@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>회전형 투명 2단 트레이 — 상세페이지</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:        #FFFFFF;
+    --bg-alt:    #F7F6F4;
+    --ink:       #1A1A1A;
+    --ink-mid:   #4A4A4A;
+    --ink-soft:  #9A9A9A;
+    --line:      #E5E3E0;
+    --accent:    #8C7B6B;
+    --warn:      #C4574A;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #EDEBE8;
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    color: var(--ink);
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 0 80px;
+  }
+
+  .page-label {
+    width: 780px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    padding-bottom: 4px;
+  }
+
+  .page {
+    width: 780px;
+    background: var(--bg);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+
+  .sec { padding: 100px 0; }
+  .sec-alt { background: var(--bg-alt); }
+  .sec .inner { padding: 0 60px; }
+
+  .sec-first-nopad { padding-top: 0; }
+
+  /* Typography */
+  .h-section {
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0;
+  }
+  .h-sub {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+  .body-txt {
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.85;
+    color: var(--ink-mid);
+    margin: 0;
+  }
+  .caption {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  /* Image box */
+  .ph {
+    width: 100%;
+    background: var(--bg-alt);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ph img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    margin: auto;
+  }
+  .ph .fname {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .ph .need {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+  .ph .hint {
+    font-size: 12px;
+    color: var(--ink-soft);
+    max-width: 420px;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .overlay-label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 6px 12px;
+  }
+
+  /* S01 */
+  .hook-text {
+    text-align: center;
+    padding: 60px 60px 100px;
+  }
+  .hook-text .line1 {
+    font-size: 17px;
+    color: var(--ink-mid);
+    margin: 0 0 16px;
+  }
+  .hook-text .line2 {
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* S02 */
+  .problem-txt {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.9;
+    color: var(--ink-mid);
+    margin: 0;
+  }
+  .problem-txt + .problem-txt { margin-top: 40px; }
+
+  /* S03 before/after */
+  .ba-wrap .ph { margin-bottom: 4px; }
+  .ba-text {
+    text-align: center;
+    padding: 60px 60px 100px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  /* Point sections */
+  .point-block { padding: 100px 60px 40px; }
+  .point-block .label { margin-bottom: 20px; }
+  .point-block .h-sub { margin-bottom: 24px; white-space: pre-line; }
+  .point-block .body-txt { white-space: pre-line; }
+
+  /* Grid 2x2 */
+  .grid2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0;
+  }
+  .grid-cell { display: flex; flex-direction: column; }
+  .grid-cell .ph { aspect-ratio: 1 / 1; }
+  .grid-cell .cap {
+    text-align: center;
+    font-size: 14px;
+    color: var(--ink-soft);
+    padding: 12px 0;
+  }
+  .grid-head { padding: 100px 60px 40px; }
+  .grid-foot-note {
+    padding: 24px 60px 100px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  /* Table S08 */
+  .compat-wrap { padding: 100px 60px 0; }
+  .compat-wrap .h-section { margin-bottom: 40px; }
+  table.compat {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table.compat th, table.compat td {
+    height: 56px;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+    font-size: 15px;
+  }
+  table.compat th {
+    font-weight: 500;
+    color: var(--ink-mid);
+    border-top: 1px solid var(--line);
+  }
+  table.compat td:first-child, table.compat th:first-child {
+    text-align: left;
+    color: var(--ink);
+  }
+  table.compat .ok { color: var(--ink); }
+  table.compat .mid { color: var(--ink-soft); }
+  table.compat .no { color: var(--ink-soft); }
+  .compat-note {
+    padding: 20px 60px 100px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* S09 point04 material */
+  .mat-block { padding: 100px 60px 40px; }
+
+  /* S10 bearing closeup */
+  .bearing-text {
+    text-align: center;
+    padding: 60px 60px 100px;
+  }
+  .bearing-text .h-sub { margin-bottom: 20px; }
+  .bearing-text .body-txt { white-space: pre-line; }
+
+  /* S11 구성품 */
+  .parts-block { padding: 100px 60px 40px; }
+
+  /* S12 조립 */
+  .assemble-head { padding: 100px 60px 40px; text-align: left; }
+
+  /* S13 세척 */
+  .wash-block { padding: 100px 60px 40px; }
+
+  /* S14 SIZE */
+  .size-block { padding: 100px 60px 40px; }
+  .size-block .label { margin-bottom: 24px; }
+  .size-table {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+  .size-row {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .size-row .k { width: 96px; color: var(--ink-soft); font-size: 15px; }
+  .size-row .v { font-weight: 600; letter-spacing: -0.01em; }
+  .size-note {
+    padding: 24px 60px 100px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* S15 상세정보 표 */
+  .info-wrap { padding: 100px 60px; }
+  .info-wrap .h-sub { margin-bottom: 30px; }
+  table.info { width: 100%; border-collapse: collapse; }
+  table.info th, table.info td {
+    height: 52px;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  table.info tr:first-child th, table.info tr:first-child td { border-top: 1px solid var(--line); }
+  table.info th {
+    width: 140px;
+    background: var(--bg-alt);
+    color: var(--ink-mid);
+    font-weight: 500;
+  }
+  table.info td { color: var(--ink); }
+
+  /* S16 주의사항 */
+  .warn-block { background: var(--bg-alt); padding: 40px 60px; }
+  .warn-block h3 {
+    color: var(--warn);
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
+  .warn-list { margin: 0; padding: 0; list-style: none; }
+  .warn-list li {
+    font-size: 17px;
+    color: var(--ink-mid);
+    line-height: 2.0;
+    padding-left: 16px;
+    position: relative;
+  }
+  .warn-list li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+  }
+
+  /* S17 문의 */
+  .contact-block {
+    text-align: center;
+    padding: 100px 60px;
+  }
+  .contact-block h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 20px;
+  }
+  .contact-block p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 01 : S01 ~ S05 ================= -->
+<div class="page-label">export 01</div>
+<div class="page" data-export="01">
+
+  <!-- S01 후킹 -->
+  <section class="sec sec-first-nopad" data-section="S01">
+    <div class="ph" style="height:480px;">
+      <img src="images/1.png" alt="">
+    </div>
+    <div class="hook-text">
+      <p class="line1">수납함은 보통, 안 보이는 곳에 둡니다.</p>
+      <p class="line2">이건 보이는 곳에 둡니다.</p>
+    </div>
+  </section>
+
+  <!-- S02 문제 정의 -->
+  <section class="sec sec-alt" data-section="S02">
+    <div class="inner">
+      <p class="problem-txt">물건이 많아서 어수선한 게 아니라<br>정리되지 않아서 어수선했습니다.</p>
+      <p class="problem-txt">뒷줄은 늘 보이지 않았고,<br>보이지 않으면 결국 두 번 삽니다.</p>
+    </div>
+  </section>
+
+  <!-- S03 Before / After -->
+  <section class="sec" data-section="S03" style="padding-top:0; padding-bottom:0;">
+    <div class="ba-wrap">
+      <div class="ph" style="height:520px;">
+        <span class="overlay-label">BEFORE</span>
+        <img src="images/2.png" alt="">
+      </div>
+      <div class="ph" style="height:520px;">
+        <span class="overlay-label">AFTER</span>
+        <img src="images/3.png" alt="">
+      </div>
+    </div>
+    <div class="ba-text">
+      같은 물건, 같은 자리<br>놓이는 방식만 달라졌습니다
+    </div>
+  </section>
+
+  <!-- S04 Point 01 회전 -->
+  <section class="sec" data-section="S04" style="padding-top:0; padding-bottom:0;">
+    <div class="point-block">
+      <p class="label">POINT 01</p>
+      <p class="h-sub">손끝 하나로
+뒷줄이 앞줄이 됩니다</p>
+      <p class="body-txt">스테인리스 볼베어링으로 가볍게 돌아갑니다.
+꺼내고, 다시 넣고, 다시 정리할 필요가 없습니다.</p>
+    </div>
+    <div class="ph" style="height:480px; margin-top:40px;">
+      <img src="images/4.png" alt="">
+    </div>
+    <div style="height:100px;"></div>
+  </section>
+
+  <!-- S05 Point 02 2단 -->
+  <section class="sec" data-section="S05" style="padding-top:0; padding-bottom:0;">
+    <div class="point-block">
+      <p class="label">POINT 02</p>
+      <p class="h-sub">위로 쌓았습니다
+같은 자리에서 두 배</p>
+      <p class="body-txt">조미료와 접시를, 스킨케어와 세안용품을
+한자리에 두어도 서로 밀어내지 않습니다.</p>
+    </div>
+    <div class="ph" style="height:480px; margin-top:40px;">
+      <img src="images/5.png" alt="">
+    </div>
+    <div style="height:100px;"></div>
+  </section>
+
+</div>
+
+<!-- ================= PAGE 02 : S06 ~ S10 ================= -->
+<div class="page-label">export 02</div>
+<div class="page" data-export="02">
+
+  <!-- S06 Point 03 어디에나 -->
+  <section class="sec sec-first-nopad" data-section="S06">
+    <div class="grid-head">
+      <p class="label">POINT 03</p>
+      <p class="h-sub" style="margin-top:20px;">주방에서 화장대까지</p>
+      <p class="body-txt" style="margin-top:20px;">투명해서 존재감이 없습니다.
+담긴 물건이 그대로 인테리어가 됩니다.</p>
+    </div>
+    <div class="grid2x2">
+      <div class="grid-cell">
+        <div class="ph">
+          <img src="images/6.png" alt="">
+        </div>
+        <div class="cap">주방</div>
+      </div>
+      <div class="grid-cell">
+        <div class="ph">
+          <img src="images/7.png" alt="">
+        </div>
+        <div class="cap">냉장고</div>
+      </div>
+      <div class="grid-cell">
+        <div class="ph">
+          <img src="images/8.png" alt="">
+        </div>
+        <div class="cap">화장대</div>
+      </div>
+      <div class="grid-cell">
+        <div class="ph">
+          <img src="images/9.png" alt="">
+        </div>
+        <div class="cap">욕실</div>
+      </div>
+    </div>
+    <div style="height:100px;"></div>
+  </section>
+
+  <!-- S07 1단 분리 -->
+  <section class="sec" data-section="S07" style="padding-top:0; padding-bottom:0;">
+    <div class="point-block" style="padding-top:100px;">
+      <p class="h-sub">낮은 곳엔, 1단으로</p>
+      <p class="body-txt" style="margin-top:20px;">기둥을 빼면 납작한 회전 트레이가 됩니다.
+냉장고 선반, 상부장 아래칸처럼
+높이가 아쉬운 곳에.</p>
+    </div>
+    <div class="ph" style="height:480px; margin-top:40px;">
+      <img src="images/10.png" alt="">
+    </div>
+    <div style="height:100px;"></div>
+  </section>
+
+  <!-- S08 공간 호환표 -->
+  <section class="sec sec-alt" data-section="S08" style="padding-top:0; padding-bottom:0;">
+    <div class="compat-wrap">
+      <h2 class="h-section">우리 집에 맞을까요?</h2>
+      <table class="compat">
+        <thead>
+          <tr><th>공간</th><th>2단</th><th>1단</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>주방 상판</td><td class="ok">○</td><td class="ok">○</td></tr>
+          <tr><td>냉장고 선반 (높이 25cm 이상)</td><td class="ok">○</td><td class="ok">○</td></tr>
+          <tr><td>냉장고 선반 (높이 25cm 미만)</td><td class="mid">△</td><td class="ok">○</td></tr>
+          <tr><td>싱크대 상부장</td><td class="ok">○</td><td class="ok">○</td></tr>
+          <tr><td>화장대 · 드레스룸</td><td class="ok">○</td><td class="ok">○</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compat-note">△ 1단으로 분리해 사용하시면 여유롭게 들어갑니다.</p>
+  </section>
+
+  <!-- S09 Point 04 소재 -->
+  <section class="sec" data-section="S09" style="padding-top:0; padding-bottom:0;">
+    <div class="mat-block">
+      <p class="label">POINT 04</p>
+      <p class="h-sub" style="margin-top:20px;">투명한 PET, 스테인리스 축</p>
+      <p class="body-txt" style="margin-top:20px;">두툼한 PET 소재로 무게를 견디고
+스테인리스 볼베어링이 회전을 지탱합니다.</p>
+    </div>
+    <div class="ph" style="height:520px; margin-top:40px;">
+      <img src="images/11.png" alt="">
+    </div>
+    <div style="height:100px;"></div>
+  </section>
+
+  <!-- S10 볼베어링 클로즈업 -->
+  <section class="sec" data-section="S10" style="padding-top:0; padding-bottom:0;">
+    <div class="ph" style="height:480px;">
+      <img src="images/12.png" alt="">
+    </div>
+    <div class="bearing-text">
+      <p class="h-sub">삐걱이지 않는 이유</p>
+      <p class="body-txt" style="margin-top:20px;">회전판 안쪽을 스테인리스 볼베어링이 둘러싸고 있습니다.
+가득 채워도, 손끝 하나로.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= PAGE 03 : S11 ~ S16 ================= -->
+<div class="page-label">export 03</div>
+<div class="page" data-export="03">
+
+  <!-- S11 구성품 -->
+  <section class="sec sec-first-nopad" data-section="S11">
+    <div class="parts-block">
+      <p class="h-sub">박스를 열면</p>
+      <p class="body-txt" style="margin-top:20px;">트레이 2개 · 기둥 3개 · 중앙 고정캡 1개
+그게 전부입니다.</p>
+    </div>
+    <div class="ph" style="height:460px; margin-top:40px;">
+      <img src="images/13.jpg" alt="">
+    </div>
+    <div style="height:100px;"></div>
+  </section>
+
+  <!-- S12 조립 방법 -->
+  <section class="sec" data-section="S12" style="padding-top:0; padding-bottom:0;">
+    <div class="assemble-head">
+      <p class="h-sub">드라이버 없이, 30초</p>
+    </div>
+    <div class="grid2x2">
+      <div class="grid-cell">
+        <div class="ph">
+          <img src="images/14.png" alt="">
+        </div>
+        <div class="cap">1. 하단 트레이 준비</div>
+      </div>
+      <div class="grid-cell">
+        <div class="ph">
+          <img src="images/15.png" alt="">
+        </div>
+        <div class="cap">2. 기둥 3개 꽂기</div>
+      </div>
+      <div class="grid-cell">
+        <div class="ph">
+          <img src="images/16.png" alt="">
+        </div>
+        <div class="cap">3. 상단 트레이 결합</div>
+      </div>
+      <div class="grid-cell">
+        <div class="ph">
+          <img src="images/17.png" alt="">
+        </div>
+        <div class="cap">4. 완료</div>
+      </div>
+    </div>
+    <p class="grid-foot-note">기둥을 구멍에 끝까지 밀어 넣어 고정해 주세요.</p>
+  </section>
+
+  <!-- S13 세척 -->
+  <section class="sec" data-section="S13" style="padding-top:0; padding-bottom:0;">
+    <div class="wash-block">
+      <p class="h-sub">분해해서, 흐르는 물에</p>
+      <p class="body-txt" style="margin-top:20px;">미지근한 물로 손세척해 주세요.
+열탕 소독과 식기세척기는 변형의 원인이 됩니다.</p>
+    </div>
+    <div class="ph" style="height:480px; margin-top:40px;">
+      <img src="images/18.png" alt="">
+    </div>
+    <div style="height:100px;"></div>
+  </section>
+
+  <!-- S14 SIZE -->
+  <section class="sec" data-section="S14" style="padding-top:0; padding-bottom:0;">
+    <div class="size-block">
+      <p class="label">SIZE</p>
+      <div class="size-table">
+        <div class="size-row"><span class="k">지름</span><span class="v">23cm</span></div>
+        <div class="size-row"><span class="k">전체 높이</span><span class="v">22cm</span></div>
+        <div class="size-row"><span class="k">단 사이</span><span class="v">18cm</span></div>
+      </div>
+    </div>
+    <div class="ph" style="height:480px;">
+      <img src="images/19.png" alt="">
+    </div>
+    <p class="size-note">손으로 측정하여 1~3cm 오차가 있을 수 있습니다.</p>
+  </section>
+
+  <!-- S15 제품 상세 정보 -->
+  <section class="sec" data-section="S15" style="padding-top:0; padding-bottom:0;">
+    <div class="info-wrap">
+      <p class="h-sub">제품 상세 정보</p>
+      <table class="info" style="margin-top:30px;">
+        <tr><th>품명</th><td>회전형 투명 2단 트레이</td></tr>
+        <tr><th>소재</th><td>PET, PVC, 스테인리스</td></tr>
+        <tr><th>크기</th><td>지름 23cm × 높이 22cm</td></tr>
+        <tr><th>구성</th><td>트레이 2개, 기둥 3개, 고정캡 1개</td></tr>
+        <tr><th>색상</th><td>투명</td></tr>
+        <tr><th>제조국</th><td>중국</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- S16 주의사항 -->
+  <section class="sec" data-section="S16" style="padding-top:0; padding-bottom:0;">
+    <div class="warn-block">
+      <h3>주의사항</h3>
+      <ul class="warn-list">
+        <li>사용 전 제품이 정상적으로 회전하는지 확인해 주세요.</li>
+        <li>화기, 습기, 직사광선에 의해 변형·변색될 수 있습니다.</li>
+        <li>충격과 급격한 온도 변화에 의한 파손에 주의해 주세요.</li>
+        <li>식기세척기, 열탕 소독은 변형의 원인이 되므로 피해 주세요.</li>
+        <li>사용자 부주의로 인한 파손은 교환·반품이 불가합니다.</li>
+        <li>모니터 해상도에 따라 색상이 달라 보일 수 있습니다.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= PAGE 04 : S17 ================= -->
+<div class="page-label">export 04</div>
+<div class="page" data-export="04">
+
+  <!-- S17 문의 안내 -->
+  <section class="sec sec-first-nopad" data-section="S17">
+    <div class="contact-block">
+      <h3>문의 안내</h3>
+      <p>상품 문의는 쿠팡 [판매자 문의하기]를 이용해 주세요.<br>평일 10:00 - 17:00 순차 답변드립니다.</p>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>
