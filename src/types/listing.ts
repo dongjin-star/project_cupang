@@ -155,3 +155,28 @@ export type GeneratedText = {
   noticeSize: string
   filterHints: { key: string; value: string }[]
 }
+
+export type ExtractedInfo = {
+  name: string
+  material: string
+  color: string
+  origin: string
+  componentsRaw: string
+  categoryKey: string
+  sourceSite: string
+  sourceProductNo: string
+  qtyPerUnit?: number
+  diameter?: number
+  width?: number
+  depth?: number
+  height?: number
+  unitPrice?: number
+  fragile?: boolean
+  lowConfidence: string[]
+  notes: string
+}
+
+export type ExtractSource = {
+  images: { mimeType: string; data: string }[]
+  url: string
+}

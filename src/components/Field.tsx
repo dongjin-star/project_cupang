@@ -5,6 +5,39 @@ import type { ReactNode } from 'react'
 const inputClass =
   'h-11 w-full rounded-lg border border-line-strong bg-surface px-3 text-sm outline-none transition-colors focus:border-accent'
 
+/** AI가 채운 값인지, 그중에서도 사람이 확인해야 하는 값인지 표시한다. */
+export type FieldBadge = 'ai' | 'check'
+
+function Badge({ kind }: { kind: FieldBadge }) {
+  const style =
+    kind === 'check'
+      ? 'bg-warn-soft text-warn'
+      : 'bg-accent-soft text-accent'
+  return (
+    <span className={`rounded px-1.5 py-0.5 text-[11px] font-medium ${style}`}>
+      {kind === 'check' ? 'AI · 확인 필요' : 'AI 입력'}
+    </span>
+  )
+}
+
+function Label({
+  label,
+  required,
+  badge,
+}: {
+  label: string
+  required?: boolean
+  badge?: FieldBadge
+}) {
+  return (
+    <span className="mb-1.5 flex flex-wrap items-center gap-1 text-sm font-medium">
+      {label}
+      {required && <span className="text-danger">*</span>}
+      {badge && <Badge kind={badge} />}
+    </span>
+  )
+}
+
 export function TextField({
   label,
   value,
@@ -12,6 +45,7 @@ export function TextField({
   placeholder,
   hint,
   required,
+  badge,
   type = 'text',
 }: {
   label: string
@@ -20,14 +54,12 @@ export function TextField({
   placeholder?: string
   hint?: string
   required?: boolean
+  badge?: FieldBadge
   type?: string
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 flex items-center gap-1 text-sm font-medium">
-        {label}
-        {required && <span className="text-danger">*</span>}
-      </span>
+      <Label label={label} required={required} badge={badge} />
       <input
         type={type}
         value={value}
@@ -48,6 +80,7 @@ export function NumberField({
   suffix,
   hint,
   placeholder,
+  badge,
 }: {
   label: string
   value: number | null
@@ -55,10 +88,11 @@ export function NumberField({
   suffix?: string
   hint?: string
   placeholder?: string
+  badge?: FieldBadge
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-medium">{label}</span>
+      <Label label={label} badge={badge} />
       <div className="relative">
         <input
           type="number"
@@ -86,21 +120,19 @@ export function SelectField({
   onChange,
   options,
   hint,
+  badge,
 }: {
   label: string
   value: string
   onChange: (v: string) => void
   options: { value: string; label: string }[]
   hint?: string
+  badge?: FieldBadge
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm font-medium">{label}</span>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className={inputClass}
-      >
+      <Label label={label} badge={badge} />
+      <select value={value} onChange={(e) => onChange(e.target.value)} className={inputClass}>
         {options.map((o) => (
           <option key={o.value} value={o.value}>
             {o.label}

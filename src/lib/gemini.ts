@@ -1,9 +1,7 @@
-import { GoogleGenAI } from '@google/genai'
 import { findCategory } from '@/lib/categories'
+import { generateWithRetry } from '@/lib/geminiClient'
 import { formatComponents, formatSize } from '@/lib/rules'
 import type { ConfirmedInfo, GeneratedText } from '@/types/listing'
-
-const MODEL = 'gemini-3.6-flash'
 
 const responseJsonSchema = {
   type: 'object',
@@ -117,16 +115,7 @@ export async function generateListingText(
   confirmed: ConfirmedInfo,
   filterKeys: string[],
 ): Promise<GeneratedText> {
-  const apiKey = process.env.GEMINI_API_KEY
-  if (!apiKey) {
-    throw new Error(
-      'GEMINI_API_KEY가 설정되지 않았습니다. 프로젝트 루트의 .env.local 파일에 GEMINI_API_KEY=발급받은키 를 추가하고 개발 서버를 다시 시작하세요.',
-    )
-  }
-
-  const ai = new GoogleGenAI({ apiKey })
-  const response = await ai.models.generateContent({
-    model: MODEL,
+  const response = await generateWithRetry({
     contents: buildPrompt(confirmed, filterKeys),
     config: {
       responseMimeType: 'application/json',
